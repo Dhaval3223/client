@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom'
 import { FaUser } from 'react-icons/fa';
 import { register, reset } from '../features/Auth/authSlice'
 import Sppinner from '../Components/Sppinner';
+import emailjs from 'emailjs-com';
 
 function Register() {
   const [formData, setFormData] = useState({
@@ -55,6 +56,10 @@ function Register() {
       }
 
       dispatch(register(userData));
+      emailjs
+        .sendForm('service_e3sxjcl', 'template_tgokeqk', e.target, '7ilO4FpszMpU2U644')
+        .then( res => console.log(res))
+        .catch(err => console.log(err));
     }
   }
 
