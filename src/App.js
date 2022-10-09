@@ -4,6 +4,13 @@ import Dashboard from './Pages/Dashboard';
 import Login from './Pages/Login';
 import Register from './Pages/Register';
 
+if (process.env.NODE_ENV === 'production') {
+  console.log = () => {};
+  console.error = () => {};
+  console.debug = () => {};
+}
+
+
 function App() {
   return (
     <>
